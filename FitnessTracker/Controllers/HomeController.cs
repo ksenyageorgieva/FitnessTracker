@@ -1,6 +1,9 @@
+using FitnessTracker.Data;
 using FitnessTracker.Models;
+using FitnessTracker.Models.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
 
 namespace FitnessTracker.Controllers
 {
@@ -19,20 +22,25 @@ namespace FitnessTracker.Controllers
         {
             return View();
         }
+       
+
         public IActionResult Person ()
         {
             return View();  
         }
+       
         public IActionResult AddEditPerson()
         {
             return View();
         }
-        public IActionResult AddEditPersonForm(Person model)
-        {
-            _context.Persons.Add(model);
-            _context.SaveChanges();
-            return RedirectToAction("Person");
-        }
+        [HttpPost]
+
+        //public IActionResult AddEditPersonForm(Person entity)
+        //{
+        //    _context.Persons.Add();
+        //    _context.SaveChanges();
+        //    return RedirectToAction("Person");
+        //}
         public IActionResult Privacy()
         {
             return View();

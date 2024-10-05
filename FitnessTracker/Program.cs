@@ -1,14 +1,21 @@
 using FitnessTracker.Models;
 using Microsoft.EntityFrameworkCore;
+using FitnessTracker.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//string connectionString =
+//    builder.Configuration.GetConnectionString("ApplicationContextConnectionString") ??
+//    throw new InvalidDataException("Connection string ApplicationContextConnectionString is not found");
 string connectionString =
-    builder.Configuration.GetConnectionString("ApplicationContextConnectionString") ?? throw new InvalidDataException("Connection string ApplicationContextConnectionString is not found");
-builder.Services.AddDbContext<MyDbContext>(context => context.UseMySQL(connectionString));
+    builder.Configuration.GetConnectionString("ApplicationContextConnectionString") ?? 
+    throw new InvalidDataException("No connection");
 
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MyDbContext>(context => context.UseMySQL(connectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

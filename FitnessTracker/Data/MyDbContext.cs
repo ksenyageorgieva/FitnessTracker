@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FitnessTracker.Models.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
-namespace FitnessTracker.Models
+namespace FitnessTracker.Data
 {
-    public class MyDbContext: DbContext
+
+    public class MyDbContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
 
@@ -12,11 +14,5 @@ namespace FitnessTracker.Models
 
         }
 
-        protected MyDbContext()
-        {
-        }
     }
-
-
-
 }
