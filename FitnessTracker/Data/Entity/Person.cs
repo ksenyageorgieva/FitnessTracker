@@ -18,12 +18,12 @@ namespace FitnessTracker.Models.Data.Entity
         public string LastName { get; set; }
 
         [Required]
-        public decimal Age { get; set; }
+        public int Age { get; set; } //beshe decimal
          
         public Person() { 
         }
 
-        public Person(string firstName, string lastName, decimal age)
+        public Person(string firstName, string lastName, int age)
         {
             FirstName = firstName;
             LastName = lastName;
