@@ -5,7 +5,7 @@ namespace FitnessTracker.Sevices.Interfaces
     public interface IPersonService
     {
 
-        void Add(CreatePersonViewModel person);
+        void Add(CreatePersonViewModel Person);
 
         IEnumerable<PersonViewModel> GetAll();
 

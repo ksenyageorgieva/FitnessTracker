@@ -1,6 +1,10 @@
 using FitnessTracker.Models;
 using Microsoft.EntityFrameworkCore;
 using FitnessTracker.Data;
+using FitnessTracker.Repositories.Interfaces;
+using FitnessTracker.Sevices.Interfaces;
+using FitnessTracker.Repositories;
+using FitnessTracker.Sevices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,9 @@ builder.Services.AddControllersWithViews();
 string connectionString =
     builder.Configuration.GetConnectionString("ApplicationContextConnectionString") ?? 
     throw new InvalidDataException("No connection");
+
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 builder.Services.AddControllersWithViews();
 

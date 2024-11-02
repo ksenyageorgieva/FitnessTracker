@@ -18,9 +18,9 @@ namespace FitnessTracker.Sevices
 
 
         }
-        public void Add(CreatePersonViewModel person) //person is object
+        public void Add(CreatePersonViewModel Person) //person is object
         {
-            var PersonEntity = new Person(person.FirstName, person.LastName, person.Age);
+            var PersonEntity = new Person(Person.FirstName, Person.LastName, Person.Age);
 
             personRepository.Add(PersonEntity); //ako e cherveno ne e implemetinrano?
         }
